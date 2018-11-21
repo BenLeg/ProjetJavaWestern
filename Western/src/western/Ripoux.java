@@ -55,5 +55,14 @@ public class Ripoux extends Sherif {
         this.estEnPrison = estEnPrison;
     }
     
+    @Override
+    void parle(String phrase){
+        System.out.println(phrase);
+    }
+    
+    @Override
+    void sePresenter(){
+        System.out.println("");
+    }
     
 }

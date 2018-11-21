@@ -38,7 +38,13 @@ public class Sherif extends CowBoy{
         return "";
     }
     
+    @Override
     void sePresenter(){
-        /*methode super*/
+        System.out.println("");
+    }
+    
+    @Override
+    void parle(String phrase){
+        System.out.println(phrase);
     }
 }

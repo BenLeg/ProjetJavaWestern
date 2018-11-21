@@ -55,5 +55,10 @@ public class DameBrigand extends DameDetresse {
         this.estEnPrison = estEnPrison;
     }
     
+    @Override
+    void parle(String phrase){
+        System.out.println(phrase);
+    }
+    
     
 }

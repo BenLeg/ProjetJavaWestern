@@ -43,8 +43,15 @@ public class CowBoy extends Humain {
         
     }
     
+    @Override
     void sePresenter(){
         /*Utiliser la méthode super.sePresenter*/
+        System.out.println("");
+    }
+    
+    @Override
+    void parle(String phrase){
+        System.out.println(phrase);
     }
 
 

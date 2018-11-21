@@ -51,7 +51,13 @@ public class DameDetresse extends Humain {
         return"";
     }
     
+    @Override
     void sePresenter(){
-        
+        System.out.println("");
+    }
+    
+    @Override
+    void parle(String phrase){
+        System.out.println(phrase);
     }
 }

@@ -34,19 +34,13 @@ public class Humain {
         this.boissonFavorite = boissonFavorite;
     }
     
-    void parle(){
-        
+    void parle(String phrase){
+        System.out.println(phrase);
     }
     
     void sePresenter(){
-        
+        System.out.println("Bonjour, je suis "+ nom +".");
     }
     
-    String quelEstTonNom(){
-        return "";
-    }
-    
-    String getBoisson(){
-        return "";
-    }
+
 }

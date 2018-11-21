@@ -56,15 +56,20 @@ public class Brigand extends Humain {
     }
     
     void echapper(){
-        
+        System.out.println(""); 
     }
     
     String quelEstTonNom(){
         return "";
     }
     
+    @Override
     void sePresenter(){
-        
+        System.out.println("");
+    }
+    
+    void parle(String phrase){
+        System.out.println(phrase);
     }
     
 }

@@ -35,11 +35,12 @@ public class Indien extends Humain {
         this.totem = totem;
     }
     
-    void parle(/*String*/){
-        
+    void parle(String phrase){
+        System.out.println(phrase);
     }
     
+    @Override
     void sePresenter(){
-        
+        System.out.println("");
     }
 }

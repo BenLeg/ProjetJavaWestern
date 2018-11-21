@@ -29,11 +29,13 @@ public class Barman extends Humain {
         
     }
     
-    void parle(/*String*/){
-        
+    @Override
+    void parle(String phrase){
+        System.out.println(phrase);
     }
     
+    @Override
     void sePresenter(){
-        
+        System.out.println("");
     }
 }
