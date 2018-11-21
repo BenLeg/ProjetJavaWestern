@@ -56,7 +56,7 @@ public class Brigand extends Humain {
     }
     
     void echapper(){
-        System.out.println(""); 
+        System.out.println("Il ne m'a pas fallu beaucoup de temps pour m'échapper, personne ne retient "+ nom +" en cellule."); 
     }
     
     String quelEstTonNom(){
@@ -65,7 +65,7 @@ public class Brigand extends Humain {
     
     @Override
     void sePresenter(){
-        System.out.println("");
+        System.out.println("Je suis "+ nom +" le criminel le plus recherché de l'Etat.");
     }
     
     void parle(String phrase){

@@ -35,18 +35,18 @@ public class CowBoy extends Humain {
         this.adjectif = adjectif;
     }
       
-    void tirer(/*Brigand*/){
-        
+    void tirer(Brigand nomBrigand){
+        System.out.println(nom +" a tiré sur "+ nomBrigand +".");
     }
     
-    void libererDame(/*Dame*/){
-        
+    void libererDame(DameDetresse nomDame){
+        System.out.println(nom +" a libéré Lady "+ nomDame +".");
     }
     
     @Override
     void sePresenter(){
         /*Utiliser la méthode super.sePresenter*/
-        System.out.println("");
+        System.out.println("Bonjour l'ami, je suis "+ nom +" le plus grand cowboy de l'état !");
     }
     
     @Override

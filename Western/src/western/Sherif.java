@@ -25,12 +25,12 @@ public class Sherif extends CowBoy{
         this.nbBrigandCoffre = nbBrigandCoffre;
     }
     
-    void coffrer(/*Brigand*/){
-        
+    void coffrer(Brigand nomBrigand){
+        System.out.println("J'ai fini pas mettre "+ nomBrigand +" sous les verrous de ma cellule.");
     }
     
-    void rechercher(/*Brigand*/){
-        
+    void rechercher(Brigand nomBrigand){
+        System.out.println(nom +" a encore commis un crime, je pars à sa recherche.");
     }
     
     String quelEstTonNom(){
@@ -40,7 +40,7 @@ public class Sherif extends CowBoy{
     
     @Override
     void sePresenter(){
-        System.out.println("");
+        System.out.println("Bonjour, je me présente: "+ nom +". Je suis le Shérif de cette ville.");
     }
     
     @Override
