@@ -12,7 +12,12 @@ package western;
 public class Indien extends Humain {
     private int nbPlumes;
     private String totem;
-
+    
+    public Indien(){
+        nbPlumes = 0;
+        totem = "poisson";
+    }
+    
     public Indien(int nbPlumes, String totem, String nom, String boissonFavorite) {
         super(nom, boissonFavorite);
         this.nbPlumes = nbPlumes;
@@ -35,12 +40,13 @@ public class Indien extends Humain {
         this.totem = totem;
     }
     
+    @Override
     void parle(String phrase){
         System.out.println(phrase);
     }
     
     @Override
-    void sePresenter(){
-        System.out.println("");
+    void sePresenter(String debutPhrase, String finPhrase){
+        System.out.println(debutPhrase + nom + finPhrase);
     }
 }

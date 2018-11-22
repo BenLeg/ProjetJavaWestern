@@ -12,6 +12,11 @@ package western;
 public class Humain {
     protected String nom;
     protected String boissonFavorite;
+    
+    public Humain(){
+        nom = "inconnu";
+        boissonFavorite = "eau";
+    }
 
     public Humain(String nom, String boissonFavorite) {
         this.nom = nom;
@@ -38,8 +43,8 @@ public class Humain {
         System.out.println(phrase);
     }
     
-    void sePresenter(){
-        System.out.println("Bonjour, je suis "+ nom +".");
+    void sePresenter(String debutPhrase, String finPhrase){
+        System.out.println(debutPhrase + nom + finPhrase);
     }
     
 

@@ -12,14 +12,21 @@ package western;
 public class Brigand extends Humain {
     private int nbDameEnlevees;
     private int recompense;
-    private String look;
+    private String reputation;
     private Boolean estEnPrison;
+    
+    public Brigand(){
+        nbDameEnlevees = 0;
+        recompense = 0;
+        reputation = "inconnue";
+        estEnPrison = false;
+    }
 
-    public Brigand(int nbDameEnlevees, int recompense, String look, Boolean estEnPrison, String nom, String boissonFavorite) {
+    public Brigand(int nbDameEnlevees, int recompense, String reputation, Boolean estEnPrison, String nom, String boissonFavorite) {
         super(nom, boissonFavorite);
         this.nbDameEnlevees = nbDameEnlevees;
         this.recompense = recompense;
-        this.look = look;
+        this.reputation = reputation;
         this.estEnPrison = estEnPrison;
     }
 
@@ -39,12 +46,12 @@ public class Brigand extends Humain {
         this.recompense = recompense;
     }
 
-    public String getLook() {
-        return look;
+    public String getReputation() {
+        return reputation;
     }
 
-    public void setLook(String look) {
-        this.look = look;
+    public void setReputation(String reputation) {
+        this.reputation = reputation;
     }
 
     public Boolean getEstEnPrison() {
@@ -55,19 +62,21 @@ public class Brigand extends Humain {
         this.estEnPrison = estEnPrison;
     }
     
-    void echapper(){
-        System.out.println("Il ne m'a pas fallu beaucoup de temps pour m'échapper, personne ne retient "+ nom +" en cellule."); 
+    void echapper(String debutPhrase, String finPhrase){
+        System.out.println(debutPhrase + nom + finPhrase); 
     }
     
+    /* A reflechir sur l'utilité
     String quelEstTonNom(){
         return "";
     }
-    
+    */
     @Override
-    void sePresenter(){
-        System.out.println("Je suis "+ nom +" le criminel le plus recherché de l'Etat.");
+    void sePresenter(String debutPhrase, String finPhrase){
+        System.out.println(debutPhrase + nom + finPhrase);
     }
     
+    @Override
     void parle(String phrase){
         System.out.println(phrase);
     }

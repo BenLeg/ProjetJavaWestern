@@ -17,8 +17,20 @@ public class Western {
     public static void main(String[] args) {
         // TODO code application logic here
         Humain homme = new Humain("Bob","la biere");
-        homme.sePresenter();
+        homme.sePresenter("Bonjour, je me présente "," le plus cool!");
         homme.parle("Pour devenir un héros, il faut savoir mourir au bon moment.");
+        
+        Brigand criminel = new Brigand();
+        criminel.setNom("Sam");
+        
+        DameDetresse dame = new DameDetresse();
+        dame.setNom("Adele");
+        
+        dame.seFaireEnlever("//", "**", "--", criminel);
+        dame.parle("AU SECOURS !!!");
+        
+        
+        
     }
     
 }

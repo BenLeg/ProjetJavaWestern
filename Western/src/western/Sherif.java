@@ -11,6 +11,11 @@ package western;
  */
 public class Sherif extends CowBoy{
     protected int nbBrigandCoffre;
+    
+    public Sherif(){
+        super();
+        nbBrigandCoffre = 0;
+    }
 
     public Sherif(int nbBrigandCoffre, int popularite, String adjectif, String nom, String boissonFavorite) {
         super(popularite, adjectif, nom, boissonFavorite);
@@ -33,14 +38,14 @@ public class Sherif extends CowBoy{
         System.out.println(nom +" a encore commis un crime, je pars à sa recherche.");
     }
     
+    /* A reflechir sur l'utilité
     String quelEstTonNom(){
-        /*methode super*/
         return "";
     }
-    
+    */
     @Override
-    void sePresenter(){
-        System.out.println("Bonjour, je me présente: "+ nom +". Je suis le Shérif de cette ville.");
+    void sePresenter(String debutPhrase, String finPhrase){
+        System.out.println(debutPhrase + nom + finPhrase);
     }
     
     @Override

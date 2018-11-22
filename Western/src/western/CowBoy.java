@@ -13,6 +13,12 @@ public class CowBoy extends Humain {
     protected int popularite;
     protected String adjectif;
     
+    public CowBoy(){
+        super();
+        popularite = 0;
+        adjectif = "normal";
+    }
+    
     public CowBoy(int popularite, String adjectif, String nom, String boissonFavorite) {
         super(nom, boissonFavorite);
         this.popularite = popularite;
@@ -44,9 +50,8 @@ public class CowBoy extends Humain {
     }
     
     @Override
-    void sePresenter(){
-        /*Utiliser la méthode super.sePresenter*/
-        System.out.println("Bonjour l'ami, je suis "+ nom +" le plus grand cowboy de l'état !");
+    void sePresenter(String debutPhrase, String finPhrase){
+        System.out.println(debutPhrase + nom + finPhrase);
     }
     
     @Override

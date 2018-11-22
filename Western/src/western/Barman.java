@@ -11,6 +11,11 @@ package western;
  */
 public class Barman extends Humain {
     private String nomBar;
+    
+    public Barman(){
+        super();
+        nomBar = "Zytho";
+    }
 
     public Barman(String nomBar, String nom, String boissonFavorite) {
         super(nom, boissonFavorite);
@@ -25,8 +30,8 @@ public class Barman extends Humain {
         this.nomBar = nomBar;
     }
     
-    void sert(/*Humain*/){
-        
+    void sert(String debutPhrase, String milieuPhrase, String finPhrase, Humain client){
+        System.out.println(debutPhrase + client.boissonFavorite + milieuPhrase + client.nom + finPhrase);
     }
     
     @Override
@@ -35,7 +40,7 @@ public class Barman extends Humain {
     }
     
     @Override
-    void sePresenter(){
-        System.out.println("");
+    void sePresenter(String debutPhrase, String finPhrase){
+        System.out.println(debutPhrase + nom + finPhrase);
     }
 }

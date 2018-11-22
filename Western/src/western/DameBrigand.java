@@ -12,14 +12,21 @@ package western;
 public class DameBrigand extends DameDetresse {
     private int nbDameEnlevees;
     private int recompense;
-    private String look;
+    private String reputation;
     private Boolean estEnPrison;
+    
+    public DameBrigand(){
+        nbDameEnlevees = 0;
+        recompense = 0;
+        reputation = "inconnue";
+        estEnPrison = false;
+    }
 
-    public DameBrigand(int nbDameEnlevees, int recompense, String look, Boolean estEnPrison, String etat, String couleurRobe, String nom, String boissonFavorite) {
+    public DameBrigand(int nbDameEnlevees, int recompense, String reputation, Boolean estEnPrison, String etat, Couleur couleurRobe, String nom, String boissonFavorite) {
         super(etat, couleurRobe, nom, boissonFavorite);
         this.nbDameEnlevees = nbDameEnlevees;
         this.recompense = recompense;
-        this.look = look;
+        this.reputation = reputation;
         this.estEnPrison = estEnPrison;
     }
 
@@ -39,12 +46,12 @@ public class DameBrigand extends DameDetresse {
         this.recompense = recompense;
     }
 
-    public String getLook() {
-        return look;
+    public String getReputation() {
+        return reputation;
     }
 
-    public void setLook(String look) {
-        this.look = look;
+    public void setReputation(String reputation) {
+        this.reputation = reputation;
     }
 
     public Boolean getEstEnPrison() {
@@ -60,5 +67,9 @@ public class DameBrigand extends DameDetresse {
         System.out.println(phrase);
     }
     
+    @Override
+    void sePresenter(String debutPhrase, String finPhrase){
+        System.out.println(debutPhrase + nom + finPhrase);
+    }
     
 }
