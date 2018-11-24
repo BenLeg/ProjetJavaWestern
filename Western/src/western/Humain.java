@@ -13,11 +13,19 @@ public class Humain {
     protected String nom;
     protected String boissonFavorite;
     
+    /**
+     *
+     */
     public Humain(){
         nom = "inconnu";
         boissonFavorite = "eau";
     }
 
+    /**
+     *
+     * @param nom
+     * @param boissonFavorite
+     */
     public Humain(String nom, String boissonFavorite) {
         this.nom = nom;
         this.boissonFavorite = boissonFavorite;
@@ -35,6 +43,10 @@ public class Humain {
         return boissonFavorite;
     }
 
+    /**
+     *
+     * @param boissonFavorite
+     */
     public void setBoissonFavorite(String boissonFavorite) {
         this.boissonFavorite = boissonFavorite;
     }
