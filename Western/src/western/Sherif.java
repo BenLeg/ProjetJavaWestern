@@ -31,7 +31,7 @@ public class Sherif extends CowBoy{
     
     @Override
     public void sePresenter(){
-        parler("Je suis le Sherif de cette ville, connu sous le nom de "+ nom +" le "+ this.donneTonAdjectif() +" et ce qu'il faut pour étancher ma soif c'est un verre de "+ boissonFavorite +".");
+        parler("Je suis le Sherif de cette ville, connu sous le nom de "+ nom +" "+ this.donneTonAdjectif() +" et ce qu'il faut pour étancher ma soif c'est un verre de "+ boissonFavorite +".");
     }
     
     public void coffrer(Brigand nomBrigand){

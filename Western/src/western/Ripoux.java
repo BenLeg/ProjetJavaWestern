@@ -19,13 +19,11 @@ public class Ripoux extends Sherif {
         super();
         nbDamesEnlevees = 0;
         recompense = 100;
-        reputation = "inconnue";
         estEnPrison = false;
     }
 
-    public Ripoux(String nom, String adjectif, String boissonFavorite, int popularite, String reputation) {
+    public Ripoux(String nom, String boissonFavorite, String adjectif, int popularite) {
         super(nom, boissonFavorite, adjectif , popularite);
-        this.reputation = reputation;
     }
 
     public int donneNbDameEnlevees() {
@@ -42,7 +40,7 @@ public class Ripoux extends Sherif {
     
     @Override
     public void sePresenter(){
-        parler("Je suis "+ nom +". J'ai une réputation de "+ reputation +" et ce qu'il faut pour étancher ma soif c'est un verre de "+ this.donneTaBoissonFavorite() +".");
+        parler("Je suis "+ nom +". J'ai une réputation de "+ this.donneTonAdjectif() +" et ce qu'il faut pour étancher ma soif c'est un verre de "+ this.donneTaBoissonFavorite() +".");
     }
     
     public void kidnapperDame(DameDetresse dame) {

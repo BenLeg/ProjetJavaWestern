@@ -24,9 +24,10 @@ public class Brigand extends Humain implements HorsLaLoi{
         estVivant = true;
     }
     
-    public Brigand(String nom, String boissonFavorite, String adjectif, String reputation) {
+    public Brigand(String nom, String boissonFavorite, String reputation, int recompense) {
         super(nom, boissonFavorite);
         this.reputation = reputation;
+        this.recompense = recompense;
     }
 
     public int donneNbDameEnlevees() {
