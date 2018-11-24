@@ -9,7 +9,10 @@ package western;
  *
  * @author legbe
  */
-public class SaisieVideException extends Exception{
+public class SaisieVideException extends Exception {
     
+    public SaisieVideException(){
+        System.out.println("ERREUR: La saisie est vide !");
+    }
     
 }

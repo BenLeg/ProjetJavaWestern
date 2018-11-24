@@ -18,7 +18,7 @@ public class Western {
         // TODO code application logic here
         
         CowBoy fred = new CowBoy("fred","biere",10,"bonne");
-        System.out.println("++"+fred.quelEstTonNom());
+        System.out.println("++"+fred.nom);
 
         
         

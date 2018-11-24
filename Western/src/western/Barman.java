@@ -24,11 +24,11 @@ public class Barman extends Humain {
         try{
             parler("Salut "+ client.donneTonNom() +". Qu'est ce que je te sert ?");
             boisson = input.nextLine(); 
-            Humain.verificationSaisie(boisson);
+            Humain.controleSaisie(boisson);
             parler("Et voilà ton verre de " + boisson + ".");
         }
-        catch(SaisieException be){
-            System.out.println(be.getMessage());
+        catch(SaisieVideException e){
+            System.out.println(e.getMessage());
             sert(client);
         }
     }

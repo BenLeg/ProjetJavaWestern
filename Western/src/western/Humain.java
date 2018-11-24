@@ -34,5 +34,16 @@ public abstract class Humain {
     public void parler(String phrase){
         System.out.println(nom +" : "+ phrase);
     }
+    
+    public static void controleSaisie(String parametre) throws SaisieVideException{
+        if (parametre.isEmpty()){
+            throw new SaisieVideException();
+        }
+        else{
+
+        }
+    }
  
 }
+
+
