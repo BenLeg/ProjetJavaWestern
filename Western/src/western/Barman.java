@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package western;
-
+import java.util.*;
 /**
  *
  * @author legbe
@@ -17,30 +12,32 @@ public class Barman extends Humain {
         nomBar = "Zytho";
     }
 
-    public Barman(String nomBar, String nom, String boissonFavorite) {
+    public Barman(String nom, String boissonFavorite, String nomBar) {
         super(nom, boissonFavorite);
         this.nomBar = nomBar;
     }
-
-    public String getNomBar() {
-        return nomBar;
-    }
-
-    public void setNomBar(String nomBar) {
-        this.nomBar = nomBar;
+    
+    public void sert(Humain client){
+        String boisson;
+        Scanner input = new Scanner(System.in);
+        
+        try{
+            parler("Salut "+ client.donneTonNom() +". Qu'est ce que je te sert ?");
+            boisson = input.nextLine(); 
+            Humain.verificationSaisie(boisson);
+            parler("Et voilà ton verre de " + boisson + ".");
+        }
+        catch(SaisieException be){
+            System.out.println(be.getMessage());
+            sert(client);
+        }
     }
     
-    void sert(String debutPhrase, String milieuPhrase, String finPhrase, Humain client){
-        System.out.println(debutPhrase + client.boissonFavorite + milieuPhrase + client.nom + finPhrase);
+    public void sertBoissonFavorite(Humain client){
+        parler("Eh "+ client.nom +" ! Tiens la même chose que d'habitude, un bon verre de "+ client.boissonFavorite +".");
     }
     
-    @Override
-    void parle(String phrase){
-        System.out.println(phrase);
-    }
-    
-    @Override
-    void sePresenter(String debutPhrase, String finPhrase){
-        System.out.println(debutPhrase + nom + finPhrase);
+    public void sePresenter(){
+        parler("Je suis "+ nom +" le barman du "+ nomBar +". J'apprécie un bon verre de "+ boissonFavorite +" après mon service.");
     }
 }

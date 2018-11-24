@@ -15,7 +15,7 @@ public class Indien extends Humain {
     
     public Indien(){
         nbPlumes = 0;
-        totem = "poisson";
+        totem = "le saumon";
     }
     
     public Indien(int nbPlumes, String totem, String nom, String boissonFavorite) {
@@ -40,13 +40,7 @@ public class Indien extends Humain {
         this.totem = totem;
     }
     
-    @Override
-    void parle(String phrase){
-        System.out.println(phrase);
-    }
-    
-    @Override
-    void sePresenter(String debutPhrase, String finPhrase){
-        System.out.println(debutPhrase + nom + finPhrase);
+    void sePresenter(){
+        parler("Je suis "+ nom +" l'indien, mon totem est "+ totem +". Je suis paré de mes "+ nbPlumes +" plus belles plumes ." );
     }
 }

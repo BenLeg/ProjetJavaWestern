@@ -9,15 +9,7 @@ package western;
  *
  * @author legbe
  */
-public enum Couleur{
-    ROUGE("rouge"),
-    BLEUE("bleue"),
-    NOIRE("noire");
+public class SaisieVideException extends Exception{
     
-    private String color = "";
-    
-    Couleur(String color){
-        this.color = color;
-    }
     
 }

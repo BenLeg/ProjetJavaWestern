@@ -10,8 +10,6 @@ package western;
  * @author legbe
  */
 public interface HorsLaLoi {
-    void kidnapperDame(/*Dame*/);
-    void seFaireEmprisonner(/*Cowboy*/);
-    String getRecompense();
-    String quelEstTonNom();
+    public void kidnapperDame(DameDetresse Dame);
+    public void seFaireEmprisonner();
 }

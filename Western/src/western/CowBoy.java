@@ -10,54 +10,42 @@ package western;
  * @author legbe
  */
 public class CowBoy extends Humain {
-    protected int popularite;
-    protected String adjectif;
+    
+    private int popularite;
+    private String adjectif;
     
     public CowBoy(){
         super();
-        popularite = 0;
-        adjectif = "normal";
+        popularite = 8;
+        adjectif = "inconnu";
     }
     
-    public CowBoy(int popularite, String adjectif, String nom, String boissonFavorite) {
+    public CowBoy(String nom, String boissonFavorite, int popularite, String adjectif) {
         super(nom, boissonFavorite);
         this.popularite = popularite;
         this.adjectif = adjectif;
-    }  
-
-    public int getPopularite() {
-        return popularite;
     }
-
-    public void setPopularite(int popularite) {
-        this.popularite = popularite;
-    }
-
-    public String getAdjectif() {
+    
+    public String donneTonAdjectif(){
         return adjectif;
     }
-
-    public void setAdjectif(String adjectif) {
-        this.adjectif = adjectif;
+    
+    public int donneTaPopularite(){
+        return popularite;
     }
-      
-    void tirer(Brigand nomBrigand){
+    
+    public void sePresenter(){
+        parler("Je suis le cowboy "+ nom +" le "+ adjectif +" et ce qu'il faut pour étancher ma soif c'est un verre de "+ boissonFavorite +".");
+    }
+    
+    public void tirer(Brigand nomBrigand){
         System.out.println(nom +" a tiré sur "+ nomBrigand +".");
     }
     
-    void libererDame(DameDetresse nomDame){
+    public void libererDame(DameDetresse nomDame){
         System.out.println(nom +" a libéré Lady "+ nomDame +".");
     }
     
-    @Override
-    void sePresenter(String debutPhrase, String finPhrase){
-        System.out.println(debutPhrase + nom + finPhrase);
-    }
+
     
-    @Override
-    void parle(String phrase){
-        System.out.println(phrase);
-    }
-
-
 }

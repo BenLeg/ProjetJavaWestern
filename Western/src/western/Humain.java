@@ -1,28 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package western;
 
 /**
- *
- * @author legbe
+ * @author Benjamin Legrand et Loïc Tang
  */
-public class Humain {
+public abstract class Humain {
+    
     protected String nom;
     protected String boissonFavorite;
     
-    /**
-     *
-     */
     public Humain(){
-        nom = "inconnu";
+        nom = "inconnu(e)";
         boissonFavorite = "eau";
     }
-
+    
     /**
-     *
+     * Constructeur: classe Humain
      * @param nom
      * @param boissonFavorite
      */
@@ -31,33 +23,16 @@ public class Humain {
         this.boissonFavorite = boissonFavorite;
     }
 
-    public String getNom() {
+    public String donneTonNom() {
         return nom;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getBoissonFavorite() {
+    public String donneTaBoissonFavorite() {
         return boissonFavorite;
     }
 
-    /**
-     *
-     * @param boissonFavorite
-     */
-    public void setBoissonFavorite(String boissonFavorite) {
-        this.boissonFavorite = boissonFavorite;
+    public void parler(String phrase){
+        System.out.println(nom +" : "+ phrase);
     }
-    
-    void parle(String phrase){
-        System.out.println(phrase);
-    }
-    
-    void sePresenter(String debutPhrase, String finPhrase){
-        System.out.println(debutPhrase + nom + finPhrase);
-    }
-    
-
+ 
 }

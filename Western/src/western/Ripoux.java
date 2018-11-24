@@ -10,67 +10,52 @@ package western;
  * @author legbe
  */
 public class Ripoux extends Sherif {
-    private int nbDameEnlevees;
+    private int nbDamesEnlevees;
     private int recompense;
     private String reputation;
     private Boolean estEnPrison;
     
     public Ripoux(){
         super();
-        nbDameEnlevees = 0;
-        recompense = 0;
+        nbDamesEnlevees = 0;
+        recompense = 100;
         reputation = "inconnue";
         estEnPrison = false;
     }
 
-    public Ripoux(int nbDameEnlevees, int recompense, String reputation, Boolean estEnPrison, int nbBrigandCoffre, int popularite, String adjectif, String nom, String boissonFavorite) {
-        super(nbBrigandCoffre, popularite, adjectif, nom, boissonFavorite);
-        this.nbDameEnlevees = nbDameEnlevees;
-        this.recompense = recompense;
+    public Ripoux(String nom, String adjectif, String boissonFavorite, int popularite, String reputation) {
+        super(nom, boissonFavorite, adjectif , popularite);
         this.reputation = reputation;
-        this.estEnPrison = estEnPrison;
     }
 
-    public int getNbDameEnlevees() {
-        return nbDameEnlevees;
+    public int donneNbDameEnlevees() {
+        return nbDamesEnlevees;
     }
 
-    public void setNbDameEnlevees(int nbDameEnlevees) {
-        this.nbDameEnlevees = nbDameEnlevees;
-    }
-
-    public int getRecompense() {
+    public int donneRecompense() {
         return recompense;
     }
 
-    public void setRecompense(int recompense) {
-        this.recompense = recompense;
-    }
-
-    public String getReputation() {
-        return reputation;
-    }
-
-    public void setReputation(String reputation) {
-        this.reputation = reputation;
-    }
-
-    public Boolean getEstEnPrison() {
+    public Boolean esTuEnPrison() {
         return estEnPrison;
     }
-
-    public void setEstEnPrison(Boolean estEnPrison) {
-        this.estEnPrison = estEnPrison;
-    }
     
     @Override
-    void parle(String phrase){
-        System.out.println(phrase);
+    public void sePresenter(){
+        parler("Je suis "+ nom +". J'ai une réputation de "+ reputation +" et ce qu'il faut pour étancher ma soif c'est un verre de "+ this.donneTaBoissonFavorite() +".");
     }
     
-    @Override
-    void sePresenter(String debutPhrase, String finPhrase){
-        System.out.println(debutPhrase + nom + finPhrase);
+    public void kidnapperDame(DameDetresse dame) {
+        System.out.println(nom +" attrape "+ dame.nom +" et pose son pistolet sur sa tempe.");
+        dame.seFaireEnlever(this);
+        this.parler("Ne prononcez plus un mot et faites ce que je dis sinon j'appuie sur la détente.");
+        nbDamesEnlevees = nbDamesEnlevees + 1;
+        recompense = recompense * 2;
+    }
+    
+    public void seFaireEmprisonner(){
+        parler("NON ! Je me suis fait capturer, mais les barreaux de ma cellule ne me retiendont pas longtemps !");
+        estEnPrison = true;
     }
     
 }

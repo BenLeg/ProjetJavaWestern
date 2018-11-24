@@ -11,60 +11,53 @@ package western;
  */
 public class DameDetresse extends Humain {
     private String etat;
-    private Couleur couleurRobe;
+    private String couleurRobe;
+    private Boolean estEnlevee = false;
     
     public DameDetresse(){
         super();
-        etat = "calme";
-        couleurRobe = Couleur.ROUGE;
+        etat = "joyeuse";
+        couleurRobe = "rouge";
     }
 
-    public DameDetresse(String etat, Couleur couleurRobe, String nom, String boissonFavorite) {
+    public DameDetresse(String nom, String boissonFavorite, String etat, String couleurRobe) {
         super(nom, boissonFavorite);
         this.etat = etat;
         this.couleurRobe = couleurRobe;
     }
 
-    public String getEtat() {
+    public String donneTonEtat() {
         return etat;
     }
 
-    public void setEtat(String etat) {
-        this.etat = etat;
-    }
-
-    public Couleur getCouleurRobe() {
+    public String donneCouleurRobe() {
         return couleurRobe;
     }
 
-    public void setCouleurRobe(Couleur couleurRobe) {
-        this.couleurRobe = couleurRobe;
+    public Boolean esTuEnlevee() {
+        return estEnlevee;
     }
     
-    void seFaireEnlever(String debutPhrase, String milieuPhrase, String finPhrase, Brigand kidnappeur){
-        System.out.println(debutPhrase + kidnappeur.nom + milieuPhrase + nom + finPhrase);
+    void seFaireEnlever(Humain kidnappeur){
+        etat = "en danger";
+        parler("AU SECOOOUURS !! \nJe suis "+ etat +", "+ kidnappeur.nom +" me kidnappe !");
+        estEnlevee = true;
     }
     
-    void seFaireLiberer(String debutPhrase, String milieuPhrase, String finPhrase,CowBoy sauveur){
-        System.out.println(debutPhrase + sauveur.nom + milieuPhrase + nom + finPhrase);
+    void seFaireLiberer(CowBoy sauveur){
+        parler(sauveur.nom +"vous êtes un héro, vous m'avez sauvé la vie ! \nMerci de m'avoir libérée !");
+        estEnlevee = false;
     }
     
-    void changerRobe(String debutPhrase, String milieuPhrase, String finPhrase,CowBoy cowboy){
-        System.out.println(debutPhrase + cowboy.nom + milieuPhrase + nom + finPhrase);
+    void changerRobe(CowBoy cowboy, String couleur){
+        System.out.println("* "+ nom +" a changé de robe *");
+        parler("Regardez "+ cowboy.nom +" j'ai changé de robe rien que pour toi !");
+        cowboy.parler("Vous êtes très séduisante, le "+ couleur +" vous va à ravir.");
+        couleurRobe = couleur;
     }
     
-    /* A reflechir sur l'utilité de la methode
-    String quelEstTonNom(){
-        return"";
-    }*/
-    
-    @Override
-    void sePresenter(String debutPhrase, String finPhrase){
-        System.out.println(debutPhrase + nom + finPhrase);
+    public void sePresenter(){
+        parler("Bonjour, je suis "+ nom +", je porte une robe "+ couleurRobe +". J'aime de tant en tant boire un petit verre de "+ boissonFavorite +".");
     }
-    
-    @Override
-    void parle(String phrase){
-        System.out.println(phrase);
-    }
+
 }

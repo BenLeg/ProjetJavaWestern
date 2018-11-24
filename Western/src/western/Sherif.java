@@ -17,12 +17,11 @@ public class Sherif extends CowBoy{
         nbBrigandCoffre = 0;
     }
 
-    public Sherif(int nbBrigandCoffre, int popularite, String adjectif, String nom, String boissonFavorite) {
-        super(popularite, adjectif, nom, boissonFavorite);
-        this.nbBrigandCoffre = nbBrigandCoffre;
+    public Sherif(String nom, String adjectif, String boissonFavorite, int popularite) {
+        super(nom, boissonFavorite, popularite, adjectif);
     }
 
-    public int getNbBrigandCoffre() {
+    public int donneNbBrigandCoffre() {
         return nbBrigandCoffre;
     }
 
@@ -30,26 +29,18 @@ public class Sherif extends CowBoy{
         this.nbBrigandCoffre = nbBrigandCoffre;
     }
     
-    void coffrer(Brigand nomBrigand){
-        System.out.println("J'ai fini pas mettre "+ nomBrigand +" sous les verrous de ma cellule.");
+    @Override
+    public void sePresenter(){
+        parler("Je suis le Sherif de cette ville, connu sous le nom de "+ nom +" le "+ this.donneTonAdjectif() +" et ce qu'il faut pour étancher ma soif c'est un verre de "+ boissonFavorite +".");
     }
     
-    void rechercher(Brigand nomBrigand){
+    public void coffrer(Brigand nomBrigand){
+        System.out.println("J'ai fini pas mettre "+ nomBrigand +" sous les verrous !");
+        nbBrigandCoffre = nbBrigandCoffre + 1;
+    }
+    
+    public void rechercher(Brigand nomBrigand){
         System.out.println(nom +" a encore commis un crime, je pars à sa recherche.");
     }
-    
-    /* A reflechir sur l'utilité
-    String quelEstTonNom(){
-        return "";
-    }
-    */
-    @Override
-    void sePresenter(String debutPhrase, String finPhrase){
-        System.out.println(debutPhrase + nom + finPhrase);
-    }
-    
-    @Override
-    void parle(String phrase){
-        System.out.println(phrase);
-    }
+
 }

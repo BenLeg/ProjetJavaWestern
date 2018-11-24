@@ -9,76 +9,60 @@ package western;
  *
  * @author legbe
  */
-public class Brigand extends Humain {
+public class Brigand extends Humain implements HorsLaLoi{
     private int nbDameEnlevees;
     private int recompense;
     private String reputation;
     private Boolean estEnPrison;
+    private Boolean estVivant;
     
     public Brigand(){
         nbDameEnlevees = 0;
-        recompense = 0;
+        recompense = 100;
         reputation = "inconnue";
         estEnPrison = false;
+        estVivant = true;
     }
-
-    public Brigand(int nbDameEnlevees, int recompense, String reputation, Boolean estEnPrison, String nom, String boissonFavorite) {
+    
+    public Brigand(String nom, String boissonFavorite, String adjectif, String reputation) {
         super(nom, boissonFavorite);
-        this.nbDameEnlevees = nbDameEnlevees;
-        this.recompense = recompense;
         this.reputation = reputation;
-        this.estEnPrison = estEnPrison;
     }
 
-    public int getNbDameEnlevees() {
+    public int donneNbDameEnlevees() {
         return nbDameEnlevees;
     }
 
-    public void setNbDameEnlevees(int nbDameEnlevees) {
-        this.nbDameEnlevees = nbDameEnlevees;
-    }
-
-    public int getRecompense() {
+    public int donneTaRecompense() {
         return recompense;
     }
 
-    public void setRecompense(int recompense) {
-        this.recompense = recompense;
-    }
-
-    public String getReputation() {
+    public String donneTaReputation() {
         return reputation;
     }
 
-    public void setReputation(String reputation) {
-        this.reputation = reputation;
-    }
-
-    public Boolean getEstEnPrison() {
+    public Boolean esTuEnPrison() {
         return estEnPrison;
     }
 
-    public void setEstEnPrison(Boolean estEnPrison) {
-        this.estEnPrison = estEnPrison;
+    public Boolean esTuVivant() {
+        return estVivant;
     }
-    
-    void echapper(String debutPhrase, String finPhrase){
-        System.out.println(debutPhrase + nom + finPhrase); 
-    }
-    
-    /* A reflechir sur l'utilité
-    String quelEstTonNom(){
-        return "";
-    }
-    */
-    @Override
-    void sePresenter(String debutPhrase, String finPhrase){
-        System.out.println(debutPhrase + nom + finPhrase);
+
+    void sePresenter(){
+        parler("Je suis "+ nom +" le plus grand criminel de cette ville. J'ai une réputation de "+ reputation +" et ce qu'il faut pour étancher ma soif c'est un verre de "+ this.donneTaBoissonFavorite() +".");
     }
     
     @Override
-    void parle(String phrase){
-        System.out.println(phrase);
+    public void kidnapperDame(DameDetresse dame){
+        System.out.println(nom +" attrape "+ dame.nom +" et pose son pistolet sur sa tempe.");
+        dame.seFaireEnlever(this);
+        this.parler("Ne prononcez plus un mot et faites ce que je dis sinon j'appuie sur la détente.");
     }
     
+    @Override
+    public void seFaireEmprisonner(){
+        parler("NON ! Je me suis fait capturer, mais les barreaux de ma cellule ne me retiendont pas longtemps !");
+        estEnPrison = true;
+    }
 }
