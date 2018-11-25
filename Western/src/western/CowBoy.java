@@ -35,7 +35,7 @@ public class CowBoy extends Humain {
     }
     
     public void sePresenter(){
-        parler("Je suis le cowboy "+ nom +" le "+ adjectif +" et ce qu'il faut pour étancher ma soif c'est un verre de "+ boissonFavorite +".");
+        parler("Je suis le cowboy "+ nom +" le "+ adjectif +".");
     }
     
     public void tirer(Brigand nomBrigand){

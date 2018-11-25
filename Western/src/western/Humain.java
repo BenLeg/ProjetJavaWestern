@@ -35,9 +35,9 @@ public abstract class Humain {
         System.out.println(nom +" : "+ phrase);
     }
     
-    public static void controleSaisie(String parametre) throws SaisieVideException{
-        if (parametre.isEmpty()){
-            throw new SaisieVideException();
+    public static void controleSaisie(String saisie) throws SaisieException{
+        if (saisie.isEmpty()){
+            throw new SaisieException("ERREUR : Votre saisie est vide.");
         }
         else{
 

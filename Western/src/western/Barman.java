@@ -17,20 +17,24 @@ public class Barman extends Humain {
         this.nomBar = nomBar;
     }
     
+    public String donneTonNomDeBar(){
+        return nomBar;
+    }
+    
     public void sert(Humain client){
-        String boisson;
+        String boisson = "";
         Scanner input = new Scanner(System.in);
         
         try{
-            parler("Salut "+ client.donneTonNom() +". Qu'est ce que je te sert ?");
+            parler(" Qu'est ce que je vous sert "+ client.donneTonNom() +" ?");
             boisson = input.nextLine(); 
-            Humain.controleSaisie(boisson);
-            parler("Et voilà ton verre de " + boisson + ".");
+            controleSaisie(boisson);
         }
-        catch(SaisieVideException e){
+        catch(SaisieException e){
             System.out.println(e.getMessage());
             sert(client);
         }
+        parler("Et voilà votre verre de " + boisson + ".");
     }
     
     public void sertBoissonFavorite(Humain client){

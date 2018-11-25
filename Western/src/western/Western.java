@@ -19,10 +19,11 @@ public class Western {
         
         CowBoy fred = new CowBoy("fred","biere",10,"bonne");
         System.out.println("++"+fred.nom);
+        
+        Histoire histoire = new Histoire();
+        histoire.initialisationPersonnages();
+        histoire.initialisationHistoire();
 
-        
-        
-        
     }
     
 }
