@@ -2,7 +2,7 @@ package western;
 import java.util.*;
 /**
  *
- * @author legbe
+ * @author Legrand Benjamin et Loic Tang
  */
 public class Histoire {
     
@@ -21,8 +21,8 @@ public class Histoire {
         listeBarmans.add(john);
         Barman louis = new Barman("Louis Hayes","bière blonde","Zytho");
         listeBarmans.add(louis);
-        Sherif david = new Sherif("David Martinez","tequila","le vigoureux", 7);
-        listeSherifs.add(david);
+        Sherif martin = new Sherif("Martin Martinez","tequila","le vigoureux", 7);
+        listeSherifs.add(martin);
         Sherif alexandre = new Sherif("Alexandre Bryant","rhum blanc","le courageux", 9);
         listeSherifs.add(alexandre);
         Ripoux sam = new Ripoux("Sam Adams","rhum","magouilleur",4);
@@ -45,6 +45,8 @@ public class Histoire {
         listeIndiens.add(po);
         Indien yakari = new Indien(5, "bison", "Yakari", "eau de la rivière");
         listeIndiens.add(yakari);
+        CowBoy david = new CowBoy("David","Rhum épicé", 10,"l'ingénieux");
+        listeCowboys.add(david);
     }
     
     public void initialisationHistoire(){
@@ -57,7 +59,7 @@ public class Histoire {
         System.out.println("                                /Création personnage/");
         System.out.println("##################################################################################################");
         listeCowboys.add(creerPersonnage());
-        listeCowboys.get(0).sePresenter();
+        listeCowboys.get(1).sePresenter();
         System.out.println();
         System.out.println("Vous entrez au bar "+ listeBarmans.get(0).donneTonNomDeBar() +".\n"
                 + "Que decidez-vous de faire ?");
@@ -85,6 +87,11 @@ public class Histoire {
         return personnage;
     }
     
+    /**
+     *
+     * @param intitule
+     * @return
+     */
     public String saisie(String intitule){
         Scanner input = new Scanner(System.in);
         String motSaisi = "";
@@ -104,27 +111,22 @@ public class Histoire {
         return motSaisi;
     }
 
+    /**
+     *
+     * @param nombre
+     * @return
+     */
     public int aleatoire(int nombre){
         Random random = new Random();
         return random.nextInt(nombre);
     }
     
-    public String tir(){
-        String resultat = "";
-        switch(aleatoire(2)){
-            case 0:
-                resultat = "mort";
-                break;
-            case 1:
-                resultat = "blessure";
-                break;
-            case 2:
-                resultat = "raté";
-                break;
-        }
-        return resultat;
-    }
-    
+    /**
+     *
+     * @param intituleA
+     * @param intituleB
+     * @return
+     */
     public String choixDeuxPossibilites(String intituleA,String intituleB){
         String reponse;
         System.out.println("Un choix s'impose:");
@@ -143,6 +145,13 @@ public class Histoire {
         }
     }
     
+    /**
+     *
+     * @param intituleA
+     * @param intituleB
+     * @param intituleC
+     * @return
+     */
     public String choixTroisPossibilites(String intituleA,String intituleB,String intituleC){
         String reponse;
         System.out.println("Un choix s'impose:");
@@ -169,9 +178,11 @@ public class Histoire {
         System.out.println("* Le barman vous adresse la parole *");
         listeBarmans.get(1).sePresenter();
         listeBarmans.get(0).parler("A qui ai-je l'honneur ?");
-        listeCowboys.get(0).sePresenter();    
-        listeBarmans.get(0).sert(listeCowboys.get(0));
+        listeCowboys.get(1).sePresenter();    
+        listeBarmans.get(0).sert(listeCowboys.get(1));
         System.out.println("Vous remerciez le barman et buvez tranquillement votre verre.");
+        listeBarmans.get(0).sertBoissonFavorite(listeCowboys.get(0));
+        System.out.println("");
         switch(aleatoire(2)){
             case 0:
                 scriptProvocation();
@@ -215,6 +226,10 @@ public class Histoire {
         }
     }
     
+    /**
+     *
+     * @param nombre
+     */
     public void scriptSurplomb(int nombre){
         System.out.println("Vous prenez le chemin du surplomb.");
         switch(aleatoire(2)){
@@ -232,6 +247,10 @@ public class Histoire {
         }
     }
     
+    /**
+     *
+     * @param nombre
+     */
     public void scriptPoursuite(int nombre){
         System.out.println("Vous avez décidé de rester derrière  le criminel en fuite.\n"
                 + "Vous vous rapprochez au fur et à mesure de la poursuite.\n"
@@ -247,6 +266,10 @@ public class Histoire {
         }
     }
     
+    /**
+     *
+     * @param nombre
+     */
     public void scriptPasTirePoursuite(int nombre){
         switch(aleatoire(2)){
             case 0:
@@ -257,6 +280,10 @@ public class Histoire {
         }
     }
     
+    /**
+     *
+     * @param nombre
+     */
     public void scriptRattraper(int nombre){
         System.out.println("Vous finissez par les rattraper, "+ listeBrigands.get(2).donneTonNom() +" pointe son arme sur vous.");
         switch(aleatoire(2)){
@@ -269,27 +296,35 @@ public class Histoire {
         }
     }
     
+    /**
+     *
+     * @param nombre
+     */
     public void scriptSeRendre(int nombre){
         System.out.println(listeDamesDetresse.get(nombre).donneTonNom() +" l'empeche de tirer, son arme tombe.\n"
                 + "Vous pointez votre arme à votre tour.");
-        listeCowboys.get(0).parler("REND TOI !");
+        listeCowboys.get(1).parler("REND TOI !");
         listeBrigands.get(2).parler("D'accord.");
-        listeCowboys.get(0).libererDame(listeDamesDetresse.get(nombre));
+        listeCowboys.get(1).libererDame(listeDamesDetresse.get(nombre));
         System.out.println("Vous retournez en ville.");
         scriptHistoireAmour(nombre);
         
     }
     
+    /**
+     *
+     * @param nombre
+     */
     public void scriptTir(int nombre){
         System.out.println("Vous saisissez votre arme, alignez votre visée.");
-        listeCowboys.get(0).tirer(listeBrigands.get(2));
+        listeCowboys.get(1).tirer(listeBrigands.get(2));
         switch(aleatoire(3)){
             case 0:
                 scriptMort(nombre);
                 break;
             case 1:
                 System.out.println("Vous ratez votre tire et celui-ci vous déséquilibre.");
-                listeCowboys.get(0).parler("NOOOOOON !!");
+                listeCowboys.get(1).parler("NOOOOOON !!");
                 scriptFuite();
             case 2:
                 scriptBlessure(nombre);
@@ -297,6 +332,10 @@ public class Histoire {
         }
     }
     
+    /**
+     *
+     * @param nombre
+     */
     public void scriptBlessure(int nombre){
         System.out.println("Vous avez blessé le brigand, il ne parvient pas à s'enfuir et vous le capturez.\n"
                 + "Vous l'amenez au Sherif.");
@@ -328,28 +367,36 @@ public class Histoire {
         }
     }
     
+    /**
+     *
+     * @param nombre
+     */
     public void scriptHistoireAmour(int nombre) {
         System.out.println("Vous raccompagnez "+ listeDamesDetresse.get(nombre).donneTonNom() +"jusqu'a sa chambre d'hotel.");
-        listeDamesDetresse.get(nombre).seFaireLiberer(listeCowboys.get(0));
-        listeDamesDetresse.get(nombre).changerRobe(listeCowboys.get(0), "violet");
+        listeDamesDetresse.get(nombre).seFaireLiberer(listeCowboys.get(1));
+        listeDamesDetresse.get(nombre).changerRobe(listeCowboys.get(1), "violet");
         listeDamesDetresse.get(nombre).parler("Voulez vous être plus que mon héro ?");
         System.out.println(listeDamesDetresse.get(nombre).donneTonNom() +" est tombée amoureuse de vous.");
         finHistoire(5);
     }
             
+    /**
+     *
+     * @param nombre
+     */
     public void scriptMort(int nombre){
         switch(aleatoire(2)){
             case 0:
                 System.out.println("Vous avez tiré mais les mouvements de votre cheval ont détérioré votre précision et vous touchez "+ listeDamesDetresse.get(nombre).donneTonNom() +".\n"
                         + "Le brigand s'enfuit et vous ne vous remetez pas de votre erreur de décision.");
-                listeCowboys.get(0).parler("NON ! Je n'ai pas fais ça ?\n J'ai tué "+ listeDamesDetresse.get(nombre).donneTonNom() +", je ne peux pas revenir en ville.\n Je vais m'exiler dans le desert.");
+                listeCowboys.get(1).parler("NON ! Je n'ai pas fais ça ?\n J'ai tué "+ listeDamesDetresse.get(nombre).donneTonNom() +", je ne peux pas revenir en ville.\n Je vais m'exiler dans le desert.");
                 finHistoire(2);
                 break;
             case 1:
                 System.out.println("Vous tirez et touchez mortellement le brigand.\n"
                         + "Il s'écroule et vous vous avancez vers son cheval.");
                 listeDamesDetresse.get(nombre).modifieTonEtat("sous le choc");
-                listeCowboys.get(0).libererDame(listeDamesDetresse.get(nombre));
+                listeCowboys.get(1).libererDame(listeDamesDetresse.get(nombre));
                 listeDamesDetresse.get(nombre).parler("Merci de m'avoir libéré, je suis "+ listeDamesDetresse.get(nombre).donneTonEtat() +".");
                 finHistoire(4);
         }
@@ -357,12 +404,16 @@ public class Histoire {
     
     public void scriptFuite(){
         System.out.println( "Le brigand s'enfuit et vous ne vous remetez pas de votre erreur de décision.");
-        listeCowboys.get(0).parler("NON ! Il a réussi à s'enfuir.");
+        listeCowboys.get(1).parler("NON ! Il a réussi à s'enfuir.");
         finHistoire(3);
     } 
     
+    /**
+     *
+     * @param nombre
+     */
     public void scriptDuel(int nombre){
-        listeCowboys.get(0).parler("Dirigeons nous vers la sortie que l'on règle cette histoire au plus vite !");
+        listeCowboys.get(1).parler("Dirigeons nous vers la sortie que l'on règle cette histoire au plus vite !");
         System.out.println("Vous vous dirigez tous les deux vers la sortie du "+listeBarmans.get(0).donneTonNomDeBar()+".");
         System.out.println("Le Sherif "+ listeSherifs.get(0).donneTonNom() +" dirige le duel.");
         listeSherifs.get(0).parler("Mettez vous dos à dos. Puis faites un pas à chaque fois que je compterai.\n "
@@ -370,7 +421,7 @@ public class Histoire {
                 + "Le gagnant sera celui qui restera en vie à la fin de ce duel.\n"
                 + "Vous êtes prêt ?");
         listeBrigands.get(nombre).parler("OUI !");
-        listeCowboys.get(0).parler("OUI !");
+        listeCowboys.get(1).parler("OUI !");
         listeBrigands.get(nombre).parler("Que le duel commence !");
         for(int i = 1; i<11; i++){
             listeSherifs.get(0).parler(i +" !");
@@ -396,9 +447,9 @@ public class Histoire {
         listeRipoux.get(0).sePresenter();
         listeBrigands.get(1).sePresenter();
         listeRipoux.get(1).sePresenter();
-        listeCowboys.get(0).parler("Bonjour !");
-        listeCowboys.get(0).sePresenter();
-        listeCowboys.get(0).parler("Est ce que je peux m'assoir à votre table ?");
+        listeCowboys.get(1).parler("Bonjour !");
+        listeCowboys.get(1).sePresenter();
+        listeCowboys.get(1).parler("Est ce que je peux m'assoir à votre table ?");
         listeRipoux.get(0).parler("Biensur, mais je ne pense pas que vous ferez le poids !");
         System.out.println("Vous vous asseyez et la partie commence.");
         switch(aleatoire(2)){
@@ -411,7 +462,7 @@ public class Histoire {
     
     public void scriptVictoireCartes(){
         System.out.println("Les tours de jeux s'enchainent, vous avez de la chance et finissez par gagner.");
-        listeCowboys.get(0).parler("Haha, j'ai gagné ! Je vais pourvoir m'amuser ce soir !");
+        listeCowboys.get(1).parler("Haha, j'ai gagné ! Je vais pourvoir m'amuser ce soir !");
         listeBrigands.get(1).parler("Ce n'est pas possible d'avoir autant de chance, je suis certain que tu as tricher.\n"
                 + "Voyons si tu as autant de chance lors d'un duel au pistolet.");
         scriptDuel(1);
@@ -433,6 +484,10 @@ public class Histoire {
         }
     }
     
+    /**
+     *
+     * @param numeroFin
+     */
     public void finHistoire(int numeroFin){
         System.out.println("=============================================");
         System.out.println("Fin de l'histoire, vous avez débloqué la:");
@@ -469,19 +524,6 @@ public class Histoire {
                 break;
         }
         System.out.println("=============================================");
-        revivreHistoire();
-    }
-    
-    public void revivreHistoire(){
-        listeCowboys.clear();
-        System.out.println("Voulez vous revivre l'histoire pour découvrir d'autres fins ?");
-        switch(choixDeuxPossibilites("Oui, je veux revivre l'histoire.","Non, je souhaite en rester la.")){
-            case "a":
-                initialisationHistoire();
-                break;
-            case "b":
-                System.out.println("J'espère que l'expérience de lecture fut intéressante.");
-        }
     }
 }
 

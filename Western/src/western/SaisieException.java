@@ -1,16 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package western;
 
 /**
  *
- * @author legbe
+ * @authorLegrand Benjamin et Loic Tang
  */
 public class SaisieException extends Exception {
     
+    /**
+     *
+     * @param messageErreur
+     */
     public SaisieException(String messageErreur){
         super(messageErreur);
     }

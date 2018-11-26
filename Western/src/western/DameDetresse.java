@@ -1,35 +1,48 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package western;
 
 /**
  *
- * @author legbe
+ * @author Legrand Benjamin et Loic Tang
  */
 public class DameDetresse extends Humain {
     private String etat;
     private String couleurRobe;
     private Boolean estEnlevee = false;
     
+    /**
+     * Initialisation des parametres
+     */
     public DameDetresse(){
         super();
         etat = "joyeuse";
         couleurRobe = "rouge";
     }
 
+    /**
+     * Constructeur
+     * @param nom
+     * @param boissonFavorite
+     * @param etat
+     * @param couleurRobe
+     */
     public DameDetresse(String nom, String boissonFavorite, String etat, String couleurRobe) {
         super(nom, boissonFavorite);
         this.etat = etat;
         this.couleurRobe = couleurRobe;
     }
 
+    /**
+     * Setter
+     * @param etat
+     */
     public void modifieTonEtat(String etat) {
         this.etat = etat;
     }
 
+    /**
+     * Getter
+     * @return
+     */
     public String donneTonEtat() {
         return etat;
     }
@@ -60,6 +73,9 @@ public class DameDetresse extends Humain {
         couleurRobe = couleur;
     }
     
+    /**
+     * Méthode pour se présenter
+     */
     public void sePresenter(){
         parler("Bonjour, je suis "+ nom +", je porte une robe "+ couleurRobe +". J'aime de tant en tant boire un petit verre de "+ boissonFavorite +".");
     }

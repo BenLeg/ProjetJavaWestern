@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package western;
 
 /**
  *
- * @author legbe
+ * @author Legrand Benjamin et Loic Tang
  */
 public class Ripoux extends Sherif {
     private int nbDamesEnlevees;
@@ -15,6 +10,9 @@ public class Ripoux extends Sherif {
     private String reputation;
     private Boolean estEnPrison;
     
+    /**
+     * Initialisation des parametres
+     */
     public Ripoux(){
         super();
         nbDamesEnlevees = 0;
@@ -22,10 +20,21 @@ public class Ripoux extends Sherif {
         estEnPrison = false;
     }
 
+    /**
+     * Constructeur
+     * @param nom
+     * @param boissonFavorite
+     * @param adjectif
+     * @param popularite
+     */
     public Ripoux(String nom, String boissonFavorite, String adjectif, int popularite) {
         super(nom, boissonFavorite, adjectif , popularite);
     }
 
+    /**
+     * Getters
+     * @return
+     */
     public int donneNbDameEnlevees() {
         return nbDamesEnlevees;
     }
@@ -43,6 +52,10 @@ public class Ripoux extends Sherif {
         parler("Je suis "+ nom +". J'ai une réputation de "+ this.donneTonAdjectif() +" et ce qu'il faut pour étancher ma soif c'est un verre de "+ this.donneTaBoissonFavorite() +".");
     }
     
+    /**
+     *
+     * @param dame
+     */
     public void kidnapperDame(DameDetresse dame) {
         System.out.println(nom +" attrape "+ dame.nom +" et pose son pistolet sur sa tempe.");
         dame.seFaireEnlever(this);
@@ -51,6 +64,7 @@ public class Ripoux extends Sherif {
         recompense = recompense * 2;
     }
     
+
     public void seFaireEmprisonner(){
         parler("NON ! Je me suis fait capturer, mais les barreaux de ma cellule ne me retiendont pas longtemps !");
         estEnPrison = true;
