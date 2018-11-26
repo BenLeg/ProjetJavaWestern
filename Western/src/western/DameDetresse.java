@@ -26,6 +26,10 @@ public class DameDetresse extends Humain {
         this.couleurRobe = couleurRobe;
     }
 
+    public void modifieTonEtat(String etat) {
+        this.etat = etat;
+    }
+
     public String donneTonEtat() {
         return etat;
     }

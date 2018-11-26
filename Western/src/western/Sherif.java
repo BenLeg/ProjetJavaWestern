@@ -14,7 +14,7 @@ public class Sherif extends CowBoy{
     
     public Sherif(){
         super();
-        nbBrigandCoffre = 0;
+        nbBrigandCoffre = 27;
     }
 
     public Sherif(String nom, String adjectif, String boissonFavorite, int popularite) {
@@ -38,9 +38,6 @@ public class Sherif extends CowBoy{
         System.out.println("J'ai fini pas mettre "+ nomBrigand +" sous les verrous !");
         nbBrigandCoffre = nbBrigandCoffre + 1;
     }
-    
-    public void rechercher(Brigand nomBrigand){
-        System.out.println(nom +" a encore commis un crime, je pars à sa recherche.");
-    }
+
 
 }

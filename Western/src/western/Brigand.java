@@ -51,7 +51,7 @@ public class Brigand extends Humain implements HorsLaLoi{
     }
 
     void sePresenter(){
-        parler("Je suis "+ nom +" le plus grand criminel de cette ville. J'ai une réputation de "+ reputation +" et ce qu'il faut pour étancher ma soif c'est un verre de "+ this.donneTaBoissonFavorite() +".");
+        parler("Je suis "+ nom +" il faut pas m'enerver. J'ai une réputation de "+ reputation +".");
     }
     
     @Override
